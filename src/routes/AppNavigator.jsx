@@ -5,6 +5,14 @@ import SignupScreen from '../screens/SignupScreen';
 import LoginScreen from '../screens/LoginScreen';
 import ExpensesScreen from '../screens/ExpensesScreen';
 import AddExpenseScreen from '../screens/AddExpenseScreen';
+import HomeScreen from '../screens/HomeScreen';
+import GroupDetailsScreen from '../screens/GroupDetailsScreen';
+import AddExpenseModal from '../components/AddExpenseModal';
+import AddGroupModal from '../components/AddGroupModal';
+import GroupScreen from '../screens/GroupScreen';
+import AddFriendModal from '../components/AddFriendModal';
+import FriendsScreen from '../screens/FriendsScreen';
+import BottomTabs from './BottomTabs';
 
 
 const Stack = createStackNavigator();
@@ -15,8 +23,7 @@ const AppNavigator = () => {
       <Stack.Navigator>
         <Stack.Screen name="Signup" component={SignupScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Expenses" component={ExpensesScreen} />
-        <Stack.Screen name="AddExpense" component={AddExpenseScreen} />
+        <Stack.Screen name="Main" component={BottomTabs} />
       </Stack.Navigator>
     </NavigationContainer>
   );

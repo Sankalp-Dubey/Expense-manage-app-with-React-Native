@@ -22,7 +22,7 @@ const LoginScreen = ({ navigation }) => {
       Alert.alert('Login Failed', error.message);
     } else {
       Alert.alert('Success', 'Logged in successfully!');
-      navigation.replace('Expenses'); // Redirect to the main app screen
+      navigation.replace('Main'); // Redirect to the main app screen
     }
   };
 

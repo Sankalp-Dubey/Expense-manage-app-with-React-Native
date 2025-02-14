@@ -9,15 +9,24 @@ const SignupScreen = ({ navigation }) => {
   const [password, setPassword] = useState('');
 
   const handleSignUp = async () => {
-    const { error } = await supabase.auth.signUp({ email, password });
-
-    if (error) {
-      Alert.alert('Error', error.message);
-    } else {
-      Alert.alert('Success', 'Check your email to confirm your account!');
-      navigation.navigate('Login'); // Redirect to Login
+    try {
+      console.log("Signing up with:", email, password);
+      const { data, error } = await supabase.auth.signUp({ email, password });
+  
+      if (error) {
+        console.error("Signup Error:", error);
+        Alert.alert('Error', error.message);
+      } else {
+        console.log("Signup Success:", data);
+        Alert.alert('Success', 'Check your email to confirm your account!');
+        navigation.navigate('Login');
+      }
+    } catch (err) {
+      console.error("Unexpected Error:", err);
+      Alert.alert("Something went wrong!");
     }
   };
+  
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', padding: 20 }}>
